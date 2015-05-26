@@ -20,7 +20,7 @@ def countChange(amount, denominations, quantities):
 #a way of forming exact change from that branch exists, otherwise if amount still remains then there is change left
 #over which cannot be made and 0 is returned
 
-#I have not included the code but it is worth reducing quantities of coins larger than the amount to their max size
-#for the sake of speed
+#I have not included the code but it is worth reducing quantities of coins larger than the amount to their
+#max size (amount // denominations[n]) for the sake of speed 
 #e.g. cC(5,[1,2,3,4,5],[100,100,100,100,100]) is the same as cC(5,[1,2,3,4,5],[5,2,1,1,1]) but the latter is much faster
 #with this method
