@@ -1,6 +1,6 @@
 #finds the number of ways of creating an amount using a list of denominations and a corresponding list with quantities
 #of the denominations
-#e.g countChange(5,[1,2,5],[2,2,2]) == 2 because we have 2 coins of 5, 2 coins of 2, and 2 coins of 1 and are trying to 
+#e.g. countChange(5,[1,2,5],[2,2,2]) == 2 because we have 2 coins of 5, 2 coins of 2, and 2 coins of 1 and are trying to 
 #form 5
 #the only two options available are (5) and (2,2,1); (1,1,1,1,1) and (2,1,1,1) will not work because of the lack of 1s
 
