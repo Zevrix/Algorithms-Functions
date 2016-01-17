@@ -2,12 +2,12 @@ from math import factorial
 from math import floor
 from fractions import gcd
 
-def inverse(x):
+def inverse(x): #turns a number the the other way around e.g. 379 --> 973
     L1 = [int(i) for i in str(x)]
     L1.reverse()
     return int(''.join(str(i) for i in L1))
 
-def palincheck(x):
+def palincheck(x): #checks if a number is a palindrome
     L1 = [int(i) for i in str(x)]
     L1.reverse()
     n = int(''.join(str(i) for i in L1))
@@ -18,7 +18,7 @@ def palincheck(x):
 def choose(n,r):
     return (factorial(n))/(factorial(r)*factorial(n-r))
 
-def factors(n):
+def factors(n):#returns a list containing factors of n, e.g. 10 --> [1,2,5,10]
     L1 = []
     for i in range(1, int(n ** 0.5 + 1)):
         if n % i == 0:
@@ -30,8 +30,8 @@ def factors(n):
     L1.sort()
     return L1
 
-def amic_chain(x):
-    z = 1
+def amic_chain(x): #https://projecteuler.net/problem=95
+    z = 1  
     L1 = [x,sum(factors(x))]
     while L1[0] != L1[len(L1)-1] and L1[len(L1)-1] != 0 and L1[len(L1)-1] < 1000000 and sum(factors(L1[len(L1)-1])) != L1[len(L1)-1] and sum(factors(L1[len(L1)-1])) not in L1:
         L1.append(sum(factors(L1[z])))
@@ -40,18 +40,7 @@ def amic_chain(x):
         return L1
     return []
 
-def circRemove(L1, x):
-    if len(L1) == 1:
-    	return L1[0]
-    L1[x:len(L1):2] = [0]*len(range(x,len(L1),2))
-    if L1[-1] == 0:
-    	L1 = list(filter(None, L1))
-    	return circRemove(L1,1)
-    if L1[-1] != 0:
-    	L1 = list(filter(None, L1))
-    	return circRemove(L1,0)
-
-def sieve(n):
+def sieve(n):#sieve of erastothenes returns a list of primes less than n
     L1 = list(range(n+1))
     L1[1] = 0
     limit = int(round(n**0.5))
@@ -60,8 +49,8 @@ def sieve(n):
             L1[i*i: n+1: i] = [0] * len(range(i*i, n+1, i))
     return list(filter(None,L1))
 
-def diagonal_spiral(n):
-    x = n
+def diagonal_spiral(n): #https://projecteuler.net/problem=58
+    x = n 
     L1 = []
     while x != 1:
         y = x
@@ -83,7 +72,7 @@ def long_division(n):
         x = (x*10) % n
     return L1
 
-def prime_factors(n):
+def prime_factors(n): #returns a list of prime factors of n e.g. 20 --> [2,2,5]
 	L1 = []
 	d = 2
 	while d*d <= n:
@@ -95,14 +84,14 @@ def prime_factors(n):
 	       L1.append(n)
 	return L1
 
-def lowest_terms(a,b):
+def lowest_terms(a,b): #puts a fraction into lowest terms
     while gcd(a,b) != 1:
         blah = gcd(a,b)
         a = a/blah
         b = b/blah
     return([a,b])
 
-def miller_rabin(x):
+def miller_rabin(x): #miller rabin primality testing returns true or false depending on if the number is prime
     if x == 1 or x == 2 or x % 2 == 0:
         if x == 1:
             return False
