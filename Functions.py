@@ -40,16 +40,16 @@ def amic_chain(x):
         return L1
     return []
 
-def circShit(L1, x):
+def circRemove(L1, x):
     if len(L1) == 1:
     	return L1[0]
     L1[x:len(L1):2] = [0]*len(range(x,len(L1),2))
     if L1[-1] == 0:
     	L1 = list(filter(None, L1))
-    	return circShit(L1,1)
+    	return circRemove(L1,1)
     if L1[-1] != 0:
     	L1 = list(filter(None, L1))
-    	return circShit(L1,0)
+    	return circRemove(L1,0)
 
 def sieve(n):
     L1 = list(range(n+1))
