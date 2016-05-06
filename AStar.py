@@ -220,4 +220,5 @@ counter = 0
 for x in LPath:
     counter += L1[x[0]][x[1]]
 print()
+
 print(counter)
